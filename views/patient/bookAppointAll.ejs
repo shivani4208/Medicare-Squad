@@ -1,0 +1,59 @@
+<%-include('include/header')%>
+<style>
+    section{
+        margin-top: 7rem;
+        color:#222;
+    }
+    .card{
+        max-width: 66vw;
+        margin-left: 5rem;
+        padding: 1rem 0.85rem;
+        min-height:30vh;
+        background: white;
+        box-shadow: 3px 10px 15px rgba(0,0,0,0.1);
+    }
+    .container{
+        display: flex;
+    }
+    .rounded-circle{
+        transform: translate(-15%,-10%);
+    }
+    #res{
+        position: relative;
+        left:70rem;
+    }
+</style>
+<section>
+    <div id="res"></div>
+    <%for(let i=0;i<member.length;i++){%>
+        <div class="card bg-light">
+            <div class="container">
+                <div class="card-body text-center">
+                    <img src="/file/<%=member[i].fname%>" class="rounded-circle mb-3" alt="">
+                </div>
+                <div>
+                    <h4 class="card-title mb-3 text-primary">Dr.<%=member[i].name%></h4>      
+                    <div class="card-text">
+                        <h6><%=member[i].degree%></h6>
+                        <h6><%=member[i].specialization%></h6>
+                        <h6><%=member[i].yr%> Years Experience Overall</h6>
+                        <h6 class="fw-bold"><%=member[i].city%></h6>
+                        <h6><%=member[i].bio%></h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <%}%>
+</section>
+<script>
+    let lng;
+    let lat;
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(position=>{
+            lng=position.coords.longitude,
+            lat=position.coords.latitude
+            let text=`<a href="http://localhost:3000/patientPage/bookAppoint?lng=${lng}&lat=${lat}" class="text-decoration-none f-20 btn btn-primary">Find near me</a>`        
+            document.getElementById('res').innerHTML=text
+        })
+    }
+</script>

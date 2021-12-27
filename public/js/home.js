@@ -21,7 +21,7 @@ const searchList = (searchText) => {
     const output = (matches) => {
         if (matches.length > 0) {
             const res = matches.map(match => `
-            <a href="/patientPage/bookAppoint?location=${locsearch.value}&field=${match.name}" class="text-decoration-none text-dark card px-2 py-1">
+            <a href="/patientPage/bookAppoint?city=${locsearch.value}&specialization=${match.name}" class="text-decoration-none text-dark card px-2 py-1">
             <h6 class="fw-normal">${match.name}</h6>
             </a>
             `).join('');

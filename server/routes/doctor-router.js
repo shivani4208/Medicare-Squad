@@ -1,14 +1,34 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
+const multer=require('multer');
 const DoctorInfo = require('../model/doctorSchema');
-const Doctor = require('../model/docInfo')
-// router.get('/:user',(req,res)=>{
-//     Doctor.findOne(req.params.user,(err,doc)=>{
-//         let eid=req.params.user;
-//         if(!err) return res.render('main.ejs',{email:eid})
-//     })
-// })
+
+//Configuration for Multer
+const multerStorage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'public');
+    },
+    filename: (req, file, cb) => {
+        const ext = file.mimetype.split('/')[1];
+        cb(null, `files/admin-${file.fieldname}-${Date.now()}.${ext}`);
+    },
+})
+
+// Multer Filter
+const multerFilter = (req, file, cb) => {
+    if (file.mimetype.split("/")[1] === "pdf" || file.mimetype.split("/")[1] === "png" || file.mimetype.split("/")[1] === "jpeg" || file.mimetype.split("/")[1] === "svg") {
+        cb(null, true);
+    } else {
+        cb(new Error("File isn't accepted!!"), false);
+    }
+};
+
+const upload = multer({
+    storage: multerStorage,
+    fileFilter: multerFilter,
+})
+
 router.get('/',(req,res)=>res.render('main.ejs'))
 router.get('/profile',(req,res)=>{
     res.render('profile.ejs')
@@ -16,63 +36,33 @@ router.get('/profile',(req,res)=>{
 router.get('/editProfile',(req,res)=>{
     res.render('editProfile.ejs')
 })
-router.get('/profile/data',(req,res)=>{
-    res.render('data.ejs')
-})
-router.post('/profile',(req,res)=>{
+router.post('/profile',upload.single('myFile'),(req,res)=>{
     insertRecord(req,res);
 })
-router.post('/editProfile',(req,res)=>{
-    updateRecord(req,res);
-})
-router.get('/editProfile/:id',(req,res)=>{
-    DoctorInfo.findById(req.params.id,(err,doc)=>{
-        if(!err)
-            res.render('editProfile.ejs',{
-                doctorInfo: doc
-            })
-    })
-})
+
 function insertRecord(req,res){
-    var doctorInfo = new DoctorInfo({
-        name:req.body.name,
-        specialization:req.body.specialization,
-        age:req.body.age,
-        tel:req.body.tel,
-        location:req.body.location,
-        bio:req.body.bio,
-        degree:req.body.degree,
-        clg:req.body.clg,
-        yr:req.body.yr
-    })
-    doctorInfo.save((err,doc)=>{
-        if(!err)
-            res.redirect('/doctorPage/profile/data');
-        else {
-            if (err.name == 'ValidationError') {
-                handleValidationError(err, req.body);
-                res.render("/profile", {
-                    doctorInfo: req.body
-                });
-            }
-            else
-                console.log('Error during record insertion : ' + err);
-        }
-    })
+    // console.log(req.file)
+    try{
+        var doctorInfo = new DoctorInfo({
+            name:req.body.name,
+            specialization:req.body.specialization,
+            age:req.body.age,
+            tel:req.body.tel,
+            city:req.body.city,
+            address:req.body.address,
+            bio:req.body.bio,
+            degree:req.body.degree,
+            clg:req.body.clg,
+            yr:req.body.yr,
+            fname:req.file.filename
+        })
+        doctorInfo.save((err,doc)=>{
+            if(!err)
+                return res.redirect('/doctorPage');
+        })
+    } catch(err){
+        console.log("Name of error: ",err)
+    }
 }
-function updateRecord(req,res){
-    DoctorInfo.findOneAndUpdate({_id:req.body._id},req.body,{new: true},(err,doc)=>{
-        if(!err)
-            res.redirect('/doctor/profile/data');
-        else
-            if (err.name == 'ValidationError') {
-                handleValidationError(err, req.body);
-                res.render("/editProfile", {
-                    doctorInfo: req.body
-                });
-            }
-            else
-                console.log('Error during record update : ' + err);
-    })
-}
+
 module.exports = router;

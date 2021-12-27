@@ -1,11 +1,12 @@
 <%-include('include/header')%>
     <style>
         .box-container {
-            margin: 10rem 0 0 15rem;
+            margin: 7rem 0 0 15rem;
             max-width: 55vw;
             min-height: 60vh;
             background-color: #fff;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
         }
 
         form {
@@ -13,7 +14,7 @@
         }
     </style>
     <main class="box-container">
-        <div class="container py-5">
+        <div class="container p-5">
             <form action="/patientPage/record/updateForm" method="POST" autocomplete="off">
                 <input type="hidden" name="_id" value="<%=member._id%>">
                 <div class="form-group">
@@ -29,7 +30,7 @@
                         {{member.emailError}}</div> -->
                 </div>
                 <div class="row">
-                    <div class="form-group">
+                    <div class="form-group col-md-4">
                         <label>Enter Age</label>
                         <input type="number" class="form-control" name="age" placeholder="Enter age" value="<%=member.age%>">
                     </div>
@@ -58,11 +59,11 @@
                 </div>
                 <label for="recordType" class="col-form-label">Type of Record</label>
                 <div class="form-check form-check-inline">
-                    <input type="checkbox" class="form-check-input" name="recordType" value="report" <%=member.recordType=="report"?'checked':''%>>
+                    <input type="checkbox" class="form-check-input" name="recordType" value="report" onclick="onlyOne(this)" <%=member.recordType=="report"?'checked':''%>>
                     <label for="status" class="form-check-label">Report</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input type="checkbox" class="form-check-input" name="recordType" value="prescription" <%=member.recordType=="prescription"?'checked':''%>>
+                    <input type="checkbox" class="form-check-input" name="recordType" value="prescription" onclick="onlyOne(this)" <%=member.recordType=="prescription"?'checked':''%>>
                     <label for="status" class="form-check-label">Prescription</label>
                 </div>
                 <input type="file" class="admin__input" id="myFile" name="myFile" value=""/>
@@ -73,6 +74,14 @@
             </form>
         </div>
     </main>
+    <script>
+        function onlyOne(checkbox) {
+        var checkboxes = document.getElementsByName('recordType')
+        checkboxes.forEach((item) => {
+        if (item !== checkbox) item.checked = false
+    })
+}
+    </script>
     </body>
 
     </html>

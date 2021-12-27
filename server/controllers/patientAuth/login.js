@@ -7,8 +7,7 @@ const handleSignin = async (req, res) => {
   try {
     const user = await Register.findOne({ email: req.body.email });
     console.log(req.body.email);
-    // res.status(400).json({ success: false, message: 'invalid email' });
-    if (!user) return res.render('patientLogin.ejs');
+    if (!user) return res.render('patientLogin.ejs',{msg:'Invalid Login Details',patient:req.body});
     if (user) {
       const cmp = await bcrypt.compare(req.body.password, user.password);
       if (cmp) {
@@ -17,7 +16,7 @@ const handleSignin = async (req, res) => {
         return res.redirect('/patientPage');
       }
       else{
-        res.send("invalid login details");
+        res.render('patientLogin.ejs',{msg:"Invalid Login Details",patient:req.body});
       }
     }
   } catch (err) {

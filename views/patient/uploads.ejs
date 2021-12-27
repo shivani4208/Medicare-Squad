@@ -1,22 +1,40 @@
 <%-include('include/header')%>
     <style>
-        .files {
+        .uploadedFile {
             margin-top: 5rem;
+        }
+        .fa{
+            transform: scale(1.2);
+        }
+        .recordType{
+            font-size: 1.2rem;
+        }
+        .addFile{
+            transform: translateX(50rem);
+            width:25vw;
+            padding:10px 0 10px 60px;
+        }
+        .files{
+            transform: translateY(-10%);
+        }
+        .btn{
+            margin-top: 2px;
         }
     </style>
     <div class="container">
-        <div class="files">
+        <div class="uploadedFile">
             
-                 
-            <form action="" method="POST">
-                <input type="file" name="myFile" id="myFile">
-                <button type="submit">Submit</button>
-            </form>
-            <div class="files__entity">
+            <div class="addFile bg-light">
+                <form action="/patientPage/record/uploads/<%=files._id%>" method="POST" enctype="multipart/form-data">
+                    <h3>Add New Record</h3>
+                    <input type="file" name="myFile" id="myFile">
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </form>
+            </div>   
+            <div class="files">
                 <i class="files__icon fa fa-file-text" aria-hidden="true"></i>
-                <span class="files__date">Date created:- <%=files.createdAt%></span>
-                <a href="/file/<%=files.fname%>" class="files__link"><i class="fa fa-eye tests__icon"
-                        aria-hidden="true"></i></a>
+                <span class="recordType"><%=files.recordType%></span>
+                <img src="/file/<%=files.fname%>" style="transform: scale(0.25);position: relative;right:45rem;bottom: 24rem;" class="files__link"></img>
             </div>
 
         </div>

@@ -9,8 +9,6 @@ const cors = require('cors');
 require('dotenv').config();
 
 
-var session = require('express-session');
-
 const app = express();
 
 const start = async () => {
@@ -32,11 +30,7 @@ const start = async () => {
   
   app.use('/patientPage',require('./server/routes/patient-router'));
   app.use('/doctorPage',require('./server/routes/doctor-router'));
-  app.use(session({
-    secret: 'priyajain',
-    resave: true,
-    saveUninitialized:true,
-  }));
+
   
   app.get('/', (req, res) => {
     res.render('home.ejs');

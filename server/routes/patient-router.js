@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const multer = require('multer');
 const Member = require('../model/patientSchema');
 const DoctorInfo = require('../model/doctorSchema');
-const { checkSignIn } = require('../controllers/patientAuth/register');
 
 //Configuration for Multer
 const multerStorage = multer.diskStorage({
@@ -31,53 +30,75 @@ const upload = multer({
     fileFilter: multerFilter,
 })
 
-
-router.get('/',checkSignIn,(req,res)=>{
+router.get('/', (req, res) => {
     res.render('index.ejs');
-  })
-router.get('/bookAppoint',(req,res)=>{
-    let location = req.query.location;
-        let field = req.query.field;
-        DoctorInfo.find({location,field},(err,doc)=>{
-            if(!err)
-                res.render('bookAppoint.ejs',{
-                location:location,
-                field:field,
-                member:doc
-            })
-            else 
-            console.log('Error in retrieving doctor list :' + err);
-        })
 })
-router.get('/record',(req,res)=>{
-    Member.find((err,doc)=>{
-        if(!err) {
-            res.render('record.ejs',{
+router.get('/bookAppointAll', (req, res) => {
+    DoctorInfo.find({}, (err, doc) => {
+        if (!err)
+            res.render('bookAppoint.ejs', {
                 member: doc
             })
-        } else{
+        else
+            console.log('Error in retrieving doctor list :' + err);
+    })
+    // DoctorInfo.aggregate([
+    //     {
+    //         $geoNear:{
+    //             near:{type:"Point",coordinates : [ parseFloat(req.query.lng) , parseFloat(req.query.lat) ]},
+    //             distanceField: "calcDistance",
+    //             maxDistance:100000,
+    //             spherical: true,
+    //         } 
+    //     }])
+    //     .then(member=>{
+    //         res.render('bookAppoint.ejs',{member})
+    //     })
+    //     .catch(err=>console.log('New Error :',err.message))
+})
+router.get('/bookAppoint', (req, res) => {
+    let city = req.query.city;
+    let specialization = req.query.specialization;
+
+    DoctorInfo.find({ city, specialization }, (err, doc) => {
+        if (!err)
+            res.render('bookAppoint.ejs', {
+                member: doc
+            })
+        else
+            console.log('Error in retrieving doctor list :' + err);
+    })
+})
+router.get('/record', (req, res) => {
+    Member.find((err, doc) => {
+        if (!err) {
+            res.render('record.ejs', {
+                member: doc
+            })
+        } else {
             console.log('Error in retrieving employee list :' + err);
         }
     })
 })
 
-router.get('/record/addForm',async (req,res)=>{
-    try{
-        res.render('addForm.ejs',{member:req.body});
-    } catch(err){
+router.get('/record/addForm', async (req, res) => {
+    try {
+        res.render('addForm.ejs', { member: req.body });
+    } catch (err) {
         console.log(err);
     }
 })
-router.post('/record/addForm',upload.single('myFile'),(req,res)=>{
-    insertRecord(req,res);
+router.post('/record/addForm', upload.single('myFile'), (req, res) => {
+    insertRecord(req, res);
 })
-router.post('/record/updateForm',upload.single('myFile'),(req,res)=>{
-    updateRecord(req,res);
+router.post('/record/updateForm', upload.single('myFile'), (req, res) => {
+    updateRecord(req, res);
 })
+
 router.get("/record/uploads/:id", async (req, res) => {
-    Member.findById(req.params.id,(err,files)=>{
-        if(!err)
-            res.render('uploads.ejs',{
+    Member.findById(req.params.id, (err, files) => {
+        if (!err)
+            res.render('uploads.ejs', {
                 files: files
             })
     })
@@ -86,47 +107,48 @@ router.get("/record/uploads/:id", async (req, res) => {
 //     res.render('upload.ejs');
 // })
 
-const insertRecord = async (req,res)=>{
-    try{
+const insertRecord = async (req, res) => {
+    try {
         var member = await new Member({
-            name:req.body.name,
-            symptoms:req.body.symptoms,
-            age:req.body.age,
-            gender:req.body.gender,
-            relation:req.body.relation,
-            recordType:req.body.recordType,
-            fname:req.file.filename ,     
+            name: req.body.name,
+            symptoms: req.body.symptoms,
+            age: req.body.age,
+            gender: req.body.gender,
+            relation: req.body.relation,
+            recordType: req.body.recordType,
+            fname: req.file.filename
         })
-        member.save((err,doc)=>{
-            if(!err)
-                return res.redirect('/patientPage/record');})
-    } catch(err){
+        member.save((err, doc) => {
+            if (!err)
+                return res.redirect('/patientPage/record');
+        })
+    } catch (err) {
         if (err.name == 'ValidationError') {
             // console.log('ValidationError');
             handleValidationError(err, req.body);
             res.render("addForm.ejs", {
                 member: req.body
             });
-        } else if(err.name == 'TypeError'){
+        } else if (err.name == 'TypeError') {
             // console.log('TypeError');
             let filename = '';
             res.render("addForm.ejs", {
                 member: req.body
             });
-        } else{
+        } else {
             console.log('Error during record insertion : ' + err);
         }
     }
 }
-  
-const updateRecord = async (req,res)=>{
-    try{
-        Member.findOneAndUpdate({_id:req.body._id},req.body,{new:true},(err,doc)=>{
-            if(!err){
+
+const updateRecord = async (req, res) => {
+    try {
+        Member.findOneAndUpdate({ _id: req.body._id }, req.body, { new: true }, (err, doc) => {
+            if (!err) {
                 return res.redirect('/patientPage/record');
             }
         })
-    } catch(err){
+    } catch (err) {
         if (err.name == 'ValidationError') {
             // console.log('ValidationError');
             handleValidationError(err, req.body);
@@ -153,10 +175,10 @@ function handleValidationError(err, body) {
     }
 }
 
-router.get('/record/:id',(req,res)=>{
-    Member.findById(req.params.id,(err,doc)=>{
-        if(!err)
-            res.render('updateForm.ejs',{
+router.get('/record/:id', (req, res) => {
+    Member.findById(req.params.id, (err, doc) => {
+        if (!err)
+            res.render('updateForm.ejs', {
                 member: doc
             })
     })

@@ -7,12 +7,12 @@ const Patient = require('../model/patInfo')
 
 router.post('/register', register_controller.handleRegister);
 router.get('/register',(req,res)=>{
-    res.render('patientSignUp.ejs');
+    res.render('patientSignUp.ejs',{msg:''});
 });
 
 router.post('/login', login_controller.handleSignin);
 router.get('/login',(req,res)=>{
-res.render('patientLogin.ejs');
+res.render('patientLogin.ejs',{msg:'',patient:req.body});
 });
 router.get('/',(req,res)=>{
     console.log(req.body._id)
