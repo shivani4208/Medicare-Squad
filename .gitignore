@@ -1,6 +1,2 @@
 node_modules
 .env
-/public/files
-/public/img
-/public/jsonData
-/public/video
