@@ -9,13 +9,10 @@
 
         #list {
             margin:8rem 0 0 4.5rem;
-            max-width:70vw;
-            /* min-height: 50vh !important;
-            align-content: center !important; */
+            max-width:60vw;
         }
 
         .list-group-item {
-            /* border-bottom: 1px solid black; */
             background-color: white;
             max-height: 3.5rem;
         }
@@ -23,74 +20,73 @@
             position: relative;
             left:42rem;
             bottom: 3.2rem;
-            opacity: 0.;
+           
         }
         .list-group-item a{
             display: flex;
         }
-        /* .editDelete{
-            position:relative;
-            left:50rem;
-            height:2rem;
-        } */
+  
         .group-card{
-            /* border-bottom: 1px solid black; */
-            box-shadow: 3 5px 15px rgba(0,0,0,0.3);
-            margin-bottom: 0.25rem;
-           
-            
+            box-shadow: 3px 0 5px rgba(0,0,0,0.3);
+            margin-bottom: 0.25rem;  
         }
         .group-card a{
             text-decoration: none;
         }
         .group-card-body{
-            /* cursor:pointer; */
-             /* height:3.5rem; */
              padding: 6px 0 1px 12px;
-             
+             display:flex;
         }
         .date{
             background-color:rgba(0,0,0,0.2);
             display: inline-block;
             width: 7%;
-            padding: 0px 10px;
-            margin-top:1rem;
+            height:10%;
+            padding-left: 12px;
+            margin:0.3rem 0;
         }
-        
+        .desc{
+            padding-left: 10px;
+        }
     </style>
-
-    <div class="container">
-        <a href="/patientPage/record/addForm" class="h3 add"><span class="h2">+</span> Add new</a>
-        <div class="infinite-list" id="list">
-            <%for(let i=0;i<member.length;i++) {%>
-                <div class="group-card">
-                    <a href="/patientPage/record/uploads/<%=member[i]._id%>">
-                        <div class="bg-white group-card-body">
-                            <div class="date">
-                                <h3><%=new Date().getDate()%></h3>
-                                <h5><%=new Date().toLocaleString('default', { month: 'short' });%></h5>
+        <div class="container">
+            <a href="/patientPage/record/addForm" class="h3 add"><span class="h2">+</span> Add new</a>
+            <div class="infinite-list" id="list">
+                <%for(let i=0;i<member.length;i++) {%>
+                    <div class="group-card">
+                        <a href="/patientPage/record/uploads/<%=member[i]._id%>">
+                            <div class="bg-white group-card-body">
+                                <div class="date">
+                                    <h3>
+                                        <%=new Date().getDate()%>
+                                    </h3>
+                                    <h5>
+                                        <%=new Date().toLocaleString('default', { month: 'short' });%>
+                                    </h5>
+                                </div>
+                                <div class="desc">
+                                    <h4>
+                                        <%=member[i].name%>
+                                    </h4>
+                                    <p class="text-dark">
+                                        <%=member[i].relation%>,<%=member[i].age%> yrs<br>
+                                        <%=member[i].symptoms%>
+                                    </p>
+                                 
+                                </div>
                             </div>
-                            <%=member[i].name%>
-                            <p><%=member[i].symptoms%></p>
-                            <a href="/patientPage/record/<%=member[i]._id%>"><i class="fas fa-edit fa-lg" aria-hidden="true"></i></a>
-                            <a href="/patientPage/record/delete/<%=member[i]._id%>" onclick="return confirm('Are you sure you want to delete this record ?');"><i class="fas fa-trash fa-lg" aria-hidden="true"></i></a>                   
-                        </div>
-                    </a>
-                </div>
-                <!-- <a href="#" class="list-group-item">
-                    
-                  
-                     <div>
-                        
-                    </div> -->
-                    <!-- <div class="editDelete">
-                        
-                    </div> -->
-                    <!-- <i class="fas fa-ellipsis-v"></i>
-                </a>            -->
-            <%}%>
+                            <div class="option">
+                                <a href="/patientPage/record/<%=member[i]._id%>"><i class="fas fa-edit fa-lg"
+                                        aria-hidden="true"></i></a>
+                                <a href="/patientPage/record/delete/<%=member[i]._id%>"
+                                    onclick="return confirm('Are you sure you want to delete this record ?');"><i
+                                        class="fas fa-trash fa-lg" aria-hidden="true"></i></a>
+                            </div>
+                        </a>
+                    </div>
+                <%}%>
+            </div>
         </div>
-    </div>
-    </body>
-
-    </html>
+        </body>
+    
+        </html>

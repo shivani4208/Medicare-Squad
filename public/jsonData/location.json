@@ -1,41 +1,165 @@
 [{
-    "name": "Kanpur",
-    "shortname": "knp"
-  },
-  {
-    "name": "Delhi",
-    "shortname": "del"
-  },
-  {
-    "name": "Mumbai",
-    "shortname": "Bombay"
-  },
-  {
-    "name": "Kolkata",
-    "shortname": "kol"
-  },
-  {
-    "name": "Noida",
-    "shortname": "noi"
-  },
-  {
-    "name": "Hyderabad",
-    "shortname": "hbd"
-  },
-  {
-    "name": "Chennai",
-    "shortname": "chn"
-  },
-  {
-    "name": "Ranchi",
-    "shortname": "ran"
-  },
-  {
-    "name": "Haryana",
-    "shortname": "hry"
-  },
-  {
-    "name": "Indore",
-    "shortname": "ind"
-  }
+  "name": "Kanpur",
+  "shortname": "knp"
+},
+{
+  "name": "Delhi",
+  "shortname": "del"
+},
+{
+  "name": "Mumbai",
+  "shortname": "Bombay"
+},
+{
+  "name": "Kolkata",
+  "shortname": "kol"
+},
+{
+  "name": "Noida",
+  "shortname": "noi"
+},
+{
+  "name": "Hyderabad",
+  "shortname": "hbd"
+},
+{
+  "name": "Chennai",
+  "shortname": "chn"
+},
+{
+  "name": "Ranchi",
+  "shortname": "ran"
+},
+{
+  "name": "Haryana",
+  "shortname": "hry"
+},
+{
+  "name": "Indore",
+  "shortname": "ind"
+},
+{
+  "name": "Surat",
+  "shortname": "su"
+},
+{
+  "name": "Pune",
+  "shortname": "pune"
+},
+{
+  "name": "Jaipur",
+  "shortname": "jai"
+},
+{
+  "name": "Kota",
+  "shortname": "kota"
+},
+{
+  "name": "Luckhnow",
+  "shortname": "ind"
+},
+{
+  "name": "Indore",
+  "shortname": "ind"
+},
+{
+  "name": "Leh",
+  "shortname": "leh"
+},
+{
+  "name": "Kochi",
+  "shortname": "kochi"
+},
+{
+  "name": "Kolapur",
+  "shortname": "kola"
+},
+{
+  "name": "Kurnool",
+  "shortname": "kur"
+},
+{
+  "name": "Kozhikode",
+  "shortname": "koz"
+},
+{
+  "name": "Gangtok",
+  "shortname": "gang"
+},
+{
+  "name": "Dispur",
+  "shortname": "dis"
+},
+{
+  "name": "Agartala",
+  "shortname": "agar"
+},
+{
+  "name": "GandhiNagar",
+  "shortname": "gandhi"
+},
+{
+  "name": "Bhopal",
+  "shortname": "bhopal"
+},
+{
+  "name": "Patna",
+  "shortname": "patna"
+},
+{
+  "name": "Ghaziabad",
+  "shortname": "ghazia"
+},
+{
+  "name": "Ludhiana",
+  "shortname": "ludh"
+},
+{
+  "name": "Agra",
+  "shortname": "agra"
+},
+{
+  "name": "Faridabad",
+  "shortname": "fari"
+},
+{
+  "name": "Meerut",
+  "shortname": "mee"
+},
+{
+  "name": "Rajkot",
+  "shortname": "raj"
+},
+{
+  "name": "Srinagar",
+  "shortname": "sri"
+},
+{
+  "name": "Amritsar",
+  "shortname": "amrit"
+},
+{
+  "name": "Udaipur",
+  "shortname": "ud"
+},
+{
+  "name": "Jodhpur",
+  "shortname": "jodh"
+},
+{
+  "name": "Prayagraj",
+  "shortname": "ald"
+},
+{
+  "name": "Gwalior",
+  "shortname": "gw"
+},
+{
+  "name": "Dehradun",
+  "shortname": "deh"
+},
+{
+  "name": "Durgapur",
+  "shortname": "durga"
+}
 ]

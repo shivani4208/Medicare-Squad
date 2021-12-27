@@ -1,11 +1,12 @@
 <%-include('include/header')%>
     <style>
         .box-container {
-            margin: 10rem 0 0 15rem;
+            margin: 7rem 0 0 15rem;
             max-width: 55vw;
             min-height: 60vh;
             background-color: #fff;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
         }
 
         form {
@@ -13,7 +14,7 @@
         }
     </style>
     <main class="box-container">
-        <div class="container py-5">
+        <div class="container p-5">
             <form action="/patientPage/record/addForm" method="POST" autocomplete="off" enctype="multipart/form-data">
                 <input type="hidden" name="" value="<%=member._id%>">
                 <div class="form-group">
@@ -27,42 +28,42 @@
                     <input type="text" class="form-control" name="symptoms" placeholder="Filled NA if not" value="<%=member.symptoms%>" required>
                 </div>
                 <div class="row">
-                    <div class="form-group">
+                    <div class="form-group col-md-4">
                         <label>Enter Age</label>
-                        <input type="number" class="form-control" name="age" placeholder="Enter age" value="<%=member.age%>" required>
+                        <input type="number" class="form-control rowElement" name="age" placeholder="Enter age" value="<%=member.age%>" required>
                         <div class="text-danger">
                             <%=member.ageError%></div>
                     </div>
                     <div class="form-group col-md-4">
                         <label>Gender</label>
-                        <select class="form-select" name="gender" value="<%=member.gender%>">
+                        <select class="form-select rowElement" name="gender" value="<%=member.gender%>">
                             <option selected>Choose an option</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                            <option value="Others">Others</option>
+                            <option value="Male" <%=member.gender == 'Male'?'selected':''%>>Male</option>
+                            <option value="Female" <%=member.gender == 'Female'?'selected':''%>>Female</option>
+                            <option value="Others" <%=member.gender == 'Others'?'selected':''%>>Others</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
                         <label>Relation</label>
-                        <select class="form-select" name="relation" value="<%=member.relation%>">
+                        <select class="form-select rowElement" name="relation" value="<%=member.relation%>">
                             <option selected>Choose an option</option>
-                            <option value="Self">Self</option>
-                            <option value="Mother">Mother</option>
-                            <option value="Wife">Wife</option>
-                            <option value="Sister">Sister</option>
-                            <option value="Son">Son</option>
-                            <option value="Grandmother">Grandmother</option>
-                            <option value="Others">Others</option>
+                            <option value="Self" <%=member.relation == 'Self'?'selected':''%>>Self</option>
+                            <option value="Mother" <%=member.relation == 'Mother'?'selected':''%>>Mother</option>
+                            <option value="Wife" <%=member.relation == 'Wife'?'selected':''%>>Wife</option>
+                            <option value="Sister" <%=member.relation == 'Sister'?'selected':''%>>Sister</option>
+                            <option value="Son" <%=member.relation == 'Son'?'selected':''%>>Son</option>
+                            <option value="Grandmother" <%=member.relation == 'Grandmother'?'selected':''%>>Grandmother</option>
+                            <option value="Others" <%=member.relation == 'Others'?'selected':''%>>Others</option>
                         </select>
                     </div>
                 </div>
                 <label for="recordType" class="col-form-label">Type of Record</label>
                 <div class="form-check form-check-inline">
-                    <input type="checkbox" class="form-check-input" name="recordType" value="<%=member.recordType%>">
+                    <input type="checkbox" class="form-check-input" name="recordType" value="report" onclick="onlyOne(this)" <%=member.recordType=="report"?'checked':''%>>
                     <label for="status" class="form-check-label">Report</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input type="checkbox" class="form-check-input" name="recordType" value="prescription">
+                    <input type="checkbox" class="form-check-input" name="recordType"  value="prescription" onclick="onlyOne(this)" <%=member.recordType=="prescription"?'checked':''%>>
                     <label for="status" class="form-check-label">Prescription</label>
                 </div>
                 <input type="file" class="admin__input" id="myFile" name="myFile" value="<%=member.fname%>" required/>
@@ -73,6 +74,14 @@
             </form>
         </div>
     </main>
+    <script>
+        function onlyOne(checkbox) {
+        var checkboxes = document.getElementsByName('recordType')
+        checkboxes.forEach((item) => {
+        if (item !== checkbox) item.checked = false
+    })
+}
+    </script>
     </body>
 
     </html>

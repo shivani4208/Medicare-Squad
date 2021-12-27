@@ -41,7 +41,7 @@ nav{
     transition:var(--transition);
 }
 .show-links {
-    height: 10rem;
+    height: 12rem;
 }
 .box{
     margin-top: 18rem;
@@ -126,6 +126,10 @@ footer p{
         /* background: var(--clr-primary-8); */
         color: var(--clr-primary-5);
         padding-left: 1.5rem;
+    }
+    .box{
+        position: relative;
+        left:5rem;
     }
 }
 @media screen and (min-width:999px) {

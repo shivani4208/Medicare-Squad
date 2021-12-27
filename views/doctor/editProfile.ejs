@@ -54,47 +54,47 @@
               <input type="hidden" name="" value="">
               <div class="form-group">
                 <label>Name</label>
-                <input type="text" class="form-control" name="name" placeholder="Enter name" value="<%=doctorInfo.name%>" required>
+                <input type="text" class="form-control" name="name" placeholder="Enter name" value="" required>
               </div>
               <div class="form-group col-md">
                 <label>Specialization</label>
                 <select class="form-select" name="specialization">
                   <option selected>Select Specialization</option>
-                  <option value="Dentist" <%=doctor.specialization=='Dentist'?'selected':''%>>Dentist</option>
-                  <option value="General Physician" <%=doctor.specialization=='General Physician'?'selected':''%>>General Physician</option>
-                  <option value="Cosmetic/Aesthetic Dentist" <%=doctor.specialization=='Cosmetic/Aesthetic Dentist'?'selected':''%>>Cosmetic/Aesthetic Dentist</option>
-                  <option value="Orthopedist" <%=doctor.specialization=='Orthopedist'?'selected':''%>>Orthopedist</option>
-                  <option value="Dermatologist" <%=doctor.specialization=='Dermatologist'?'selected':''%>>Dermatologist</option>
-                  <option value="Ayurveda" <%=doctor.specialization=='Ayurveda'?'selected':''%>>Ayurveda</option>
-                  <option value="General Surgeon" <%=doctor.specialization=='General Surgeon'?'selected':''%>>General Surgeon</option>
-                  <option value="Pediatrician" <%=doctor.specialization=='Pediatrician'?'selected':''%>>Pediatrician</option>
-                  <option value="General Surgeon" <%=doctor.specialization=='General Surgeon'?'selected':''%>>General Surgeon</option>
-                  <option value="Dental Surgeon" <%=doctor.specialization==''?'selected':''%>">Dental Surgeon</option>
+                  <option value="Dentist">Dentist</option>
+                  <option value="General Physician">General Physician</option>
+                  <option value="Cosmetic/Aesthetic Dentist">Cosmetic/Aesthetic Dentist</option>
+                  <option value="Orthopedist">Orthopedist</option>
+                  <option value="Dermatologist">Dermatologist</option>
+                  <option value="Ayurveda">Ayurveda</option>
+                  <option value="General Surgeon">General Surgeon</option>
+                  <option value="Pediatrician">Pediatrician</option>
+                  <option value="General Surgeon">General Surgeon</option>
+                  <option value="Dental Surgeon">Dental Surgeon</option>
                 </select>
               </div>
 
               <div class="form-group">
                 <label>Enter Age</label>
-                <input type="number" class="form-control" name="age" placeholder="Enter age" value="<%=doctorInfo.age%>" required>
+                <input type="number" class="form-control" name="age" placeholder="Enter age" value="" required>
               </div>
               <div class="form-group">
               <label>Mobile No</label>
-              <input type="tel" class="form-control" name="tel" placeholder="Enter mobile no" value="<%=doctorInfo.tel%>" required>
+              <input type="tel" class="form-control" name="tel" placeholder="Enter mobile no" value="" required>
               </div>
               <div class="form-group col-md">
               <label>Location</label>
               <select class="form-select" name="location">
                 <option selected>Select City</option>
-                <option value="Banglore" <%=doctorInfo.location=="Banglore"?'selected':''%>>Banglore</option>
-                <option value="Delhi" <%=doctorInfo.location=="Delhi"?'selected':''%>>Delhi</option>
-                <option value="Kolkata" <%=doctorInfo.location=="Kolkata"?'selected':''%>>Kolkata</option>
-                <option value="Kanpur" <%=doctorInfo.location=="Kanpur"?'selected':''%>>Kanpur</option>
-                <option value="Mumbai" <%=doctorInfo.location=="Mumbai"?'selected':'Mumbai'%>>Mumbai</option>
-                <option value="Pune" <%=doctorInfo.location=="Pune"?'selected':''%>>Pune</option>
-                <option value="Noida" <%=doctorInfo.location=="Noida"?'selected':''%>>Noida</option>
-                <option value="Indore" <%=doctorInfo.location=="Indore"?'selected':''%>>Indore</option>
-                <option value="Hyderabad" <%=doctorInfo.location=="Hyderabad"?'selected':''%>>Hyderabad</option>
-                <option value="Ranchi" <%=doctorInfo.location=="Ranchi"?'selected':''%>>Ranchi</option>
+                <option value="Banglore">Banglore</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Kanpur">Kanpur</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Pune">Pune</option>
+                <option value="Noida">Noida</option>
+                <option value="Indore">Indore</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Ranchi">Ranchi</option>
               </select>
               </div>
               <br>
@@ -138,50 +138,50 @@
                 <label>Degree</label>
                 <select class="form-select" name="degree">
                   <option selected>Select Degree</option>
-                  <option value="MBBS– Bachelor of Medicine, Bachelor of Surgery" <%=doctorInfo.degree%>>MBBS– Bachelor of Medicine, Bachelor of Surgery</option>
-                  <option value="BDS – Bachelor of Dental Surgery" <%=doctorInfo.degree%>>BDS – Bachelor of Dental Surgery</option>
-                  <option value="BAMS– Bachelor of Ayurvedic Medicine and Surgery" <%=doctorInfo.degree%>>BAMS– Bachelor of Ayurvedic Medicine and Surgery</option>
-                  <option value="BUMS– Bachelor of Unani Medicine and Surgery" <%=doctorInfo.degree%>>BUMS– Bachelor of Unani Medicine and Surgery</option>
-                  <option value="BHMS– Bachelor of Homeopathy Medicine and Surgery" <%=doctorInfo.degree%>>BHMS– Bachelor of Homeopathy Medicine and Surgery</option>
-                  <option value="BYNS- Bachelor of Yoga and Naturopathy Sciences" <%=doctorInfo.degree%>>BYNS- Bachelor of Yoga and Naturopathy Sciences</option>
-                  <option value="B.V.Sc & AH- Bachelor of Veterinary Sciences and Animal Husbandry" <%=doctorInfo.degree%>>B.V.Sc & AH- Bachelor of Veterinary Sciences and Animal Husbandry</option> <%=doctorInfo.degree%>
+                  <option value="MBBS– Bachelor of Medicine, Bachelor of Surgery"></option>
+                  <option value="BDS – Bachelor of Dental Surgery"></option>
+                  <option value="BAMS– Bachelor of Ayurvedic Medicine and Surgery"></option>
+                  <option value="BUMS– Bachelor of Unani Medicine and Surgery"></option>
+                  <option value="BHMS– Bachelor of Homeopathy Medicine and Surgery"></option>
+                  <option value="BYNS- Bachelor of Yoga and Naturopathy Sciences"></option>
+                  <option value="B.V.Sc & AH- Bachelor of Veterinary Sciences and Animal Husbandry"></option>
                 </select>
               </div>
               <div class="form-group col-md">
                 <label>College/Institue</label>
                 <select class="form-select" name="clg">
                   <option selected>Select College/Institue</option>
-                  <option value="ACSR Government Medical College Nellore" <%=doctorInfo.clg%>>ACSR Government Medical College Nellore</option>
-                  <option value="Diphu Medical College & Hospital, Diphu, Assam" <%=doctorInfo.clg%>>Diphu Medical College & Hospital, Diphu, Assam</option>
-                  <option value="Employees State Insurance Corporation Medical College,Patna" <%=doctorInfo.clg%>>Employees State Insurance Corporation Medical College,Patna</option>
-                  <option value="Dr. Baba Saheb Ambedkar Medical College, Rohini, Delhi" <%=doctorInfo.clg%>>Dr. Baba Saheb Ambedkar Medical College, Rohini, Delhi</option>
-                  <option value="Ahmedabad Municipal Coporation Medical Education Trust Medical College, Ahmedabad" <%=doctorInfo.clg%>>Ahmedabad Municipal Coporation Medical Education Trust Medical College, Ahmedabad</option>
-                  <option value="BPS Government Medical College for Women, Sonepat" <%=doctorInfo.clg%>>BPS Government Medical College for Women, Sonepat</option>
-                  <option value="Government Medical College, Rajouri, J&K" <%=doctorInfo.clg%>>Government Medical College, Rajouri, J&K</option>
+                  <option value="ACSR Government Medical College Nellore"></option>
+                  <option value="Diphu Medical College & Hospital, Diphu, Assam"></option>
+                  <option value="Employees State Insurance Corporation Medical College,Patna"></option>
+                  <option value="Dr. Baba Saheb Ambedkar Medical College, Rohini, Delhi"></option>
+                  <option value="Ahmedabad Municipal Coporation Medical Education Trust Medical College, Ahmedabad"></option>
+                  <option value="BPS Government Medical College for Women, Sonepat"></option>
+                  <option value="Government Medical College, Rajouri, J&K"></option>
                 </select>
               </div>
               <div class="form-group col-md">
                 <label>Year of Completion</label>
                 <select class="form-select col-md" name="yr">
                   <option selected>Select year of completion</option>
-                  <option value="2021" <%=doctorInfo.yr=="2021"?'selected':''%>>2021</option>
-                  <option value="2020" <%=doctorInfo.yr=="2020"?'selected':''%>>2020</option>
-                  <option value="2019" <%=doctorInfo.yr=="2019"?'selected':''%>>2019</option>
-                  <option value="2018" <%=doctorInfo.yr=="2018"?'selected':''%>>2018</option>
-                  <option value="2017" <%=doctorInfo.yr=="2017"?'selected':''%>>2017</option>
-                  <option value="2016" <%=doctorInfo.yr=="2016"?'selected':''%>>2016</option>
-                  <option value="2015" <%=doctorInfo.yr=="2015"?'selected':''%>>2015</option>
-                  <option value="2014" <%=doctorInfo.yr=="2014"?'selected':''%>>2014</option>
-                  <option value="2013" <%=doctorInfo.yr=="2013"?'selected':''%>>2013</option>
-                  <option value="2012" <%=doctorInfo.yr=="2012"?'selected':''%>>2012</option>
-                  <option value="2011" <%=doctorInfo.yr=="2011"?'selected':''%>>2011</option>
-                  <option value="2010" <%=doctorInfo.yr=="2010"?'selected':''%>>2010</option>
-                  <option value="2009" <%=doctorInfo.yr=="2009"?'selected':''%>>2009</option>
-                  <option value="2008" <%=doctorInfo.yr=="2008"?'selected':''%>>2008</option>
-                  <option value="2007" <%=doctorInfo.yr=="2007"?'selected':''%>>2007</option>
-                  <option value="2006" <%=doctorInfo.yr=="2006"?'selected':''%>>2006</option>
-                  <option value="2005" <%=doctorInfo.yr=="2005"?'selected':''%>>2005</option>
-                  <option value="2004" <%=doctorInfo.yr=="2004"?'selected':''%>>2004</option>
+                  <option value="2021" >2021</option>
+                  <option value="2020" >2020</option>
+                  <option value="2019" >2019</option>
+                  <option value="2018" >2018</option>
+                  <option value="2017" >2017</option>
+                  <option value="2016" >2016</option>
+                  <option value="2015" >2015</option>
+                  <option value="2014" >2014</option>
+                  <option value="2013" >2013</option>
+                  <option value="2012" >2012</option>
+                  <option value="2011" >2011</option>
+                  <option value="2010" >2010</option>
+                  <option value="2009" >2009</option>
+                  <option value="2008" >2008</option>
+                  <option value="2007" >2007</option>
+                  <option value="2006" >2006</option>
+                  <option value="2005" >2005</option>
+                  <option value="2004" >2004</option>
                 </select>       
               </div>
               <div class="form-group">

@@ -7,16 +7,17 @@ body{
     font-family: 'Markazi Text', serif;
 }
 .loginbox{
-    height:70vh;
+    min-height:70vh;
     width:40vw;
     margin-left: 28.3%;
-    margin-top: 6.7%;
+    margin-top: 4%;
+    padding-bottom: 2px;
     background:white;
     box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
 }
 .container{
     padding-left:8.5rem;
-    padding-top: 2rem;
+    padding-top: 0.8rem;
 }
 h1{
    color: brown; 
@@ -25,9 +26,10 @@ h1{
 form a{
     letter-spacing:1px;
     color: blue; 
-    font-size:25px;
+    font-size:22px;
     position: relative;
-    right:5.5px;
+    right:1px;
+    bottom: 2px;
 }
 label{
     font-size:1.5rem;
@@ -38,7 +40,7 @@ label{
 }
 .btn {
     color: white;
-    padding: 8px 20px;
+    padding: 8px 22px;
     text-align: center;
     text-decoration: none;
     display: block;
@@ -75,4 +77,5 @@ label{
         font-size: 21px;
     }
 }
+    
     
