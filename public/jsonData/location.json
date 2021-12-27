@@ -1,0 +1,41 @@
+[{
+    "name": "Kanpur",
+    "shortname": "knp"
+  },
+  {
+    "name": "Delhi",
+    "shortname": "del"
+  },
+  {
+    "name": "Mumbai",
+    "shortname": "Bombay"
+  },
+  {
+    "name": "Kolkata",
+    "shortname": "kol"
+  },
+  {
+    "name": "Noida",
+    "shortname": "noi"
+  },
+  {
+    "name": "Hyderabad",
+    "shortname": "hbd"
+  },
+  {
+    "name": "Chennai",
+    "shortname": "chn"
+  },
+  {
+    "name": "Ranchi",
+    "shortname": "ran"
+  },
+  {
+    "name": "Haryana",
+    "shortname": "hry"
+  },
+  {
+    "name": "Indore",
+    "shortname": "ind"
+  }
+]

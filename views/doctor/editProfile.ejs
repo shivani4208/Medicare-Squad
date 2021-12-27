@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <title>Tabs</title>
+  <link rel="stylesheet" href="/css/profile.css">
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body class="body">
+  <div class="wrapper">
+    <button class="toggle">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h2>Hello<br><span class="name">Name</span></h2>
+        <button class="close-btn"><i class="fas fa-times"></i></button>
+      </div>
+      <ul class="">
+        <li><a class="nav-link" href="/doctorPage"><i class="fas fa-home"></i> Home</a></li>
+        <li><a class="nav-link" href="/doctorPage/profile"><i class="fas fa-user"></i>My profile</a></li>
+        <li><a class="nav-link" href="#"><i class="fas fa-hand-paper"></i>My Appointments</a></li>
+        <li><a class="nav-link" href="#"><i class="fas fa-user-injured"></i>My Patients</a></li>
+        <li><a class="nav-link" href="/doctorPage/editProfile"><i class="fas fa-marker"></i>Edit Profile</a></li>
+        <li><a class="nav-link" href="#"><i class="fas fa-calendar-week"></i> Calender</a></li>
+      </ul>
+      <div class="social_media">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+  <section class="section">
+    <div class="title">
+      <h2>Profile</h2>
+      <p>
+        We will verify the information within 7 days which you'll provide.
+      </p>
+    </div>
+    <div class="about-center section-center">
+      <article class="about">
+        <!-- btn container -->
+        <div class="about-content">
+          <!-- single item -->
+          <form action="/doctorPage/editProfile" method="POST" autocomplete="off">
+            <div class=" active">
+              <input type="hidden" name="" value="">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" name="name" placeholder="Enter name" value="<%=doctorInfo.name%>" required>
+              </div>
+              <div class="form-group col-md">
+                <label>Specialization</label>
+                <select class="form-select" name="specialization">
+                  <option selected>Select Specialization</option>
+                  <option value="Dentist" <%=doctor.specialization=='Dentist'?'selected':''%>>Dentist</option>
+                  <option value="General Physician" <%=doctor.specialization=='General Physician'?'selected':''%>>General Physician</option>
+                  <option value="Cosmetic/Aesthetic Dentist" <%=doctor.specialization=='Cosmetic/Aesthetic Dentist'?'selected':''%>>Cosmetic/Aesthetic Dentist</option>
+                  <option value="Orthopedist" <%=doctor.specialization=='Orthopedist'?'selected':''%>>Orthopedist</option>
+                  <option value="Dermatologist" <%=doctor.specialization=='Dermatologist'?'selected':''%>>Dermatologist</option>
+                  <option value="Ayurveda" <%=doctor.specialization=='Ayurveda'?'selected':''%>>Ayurveda</option>
+                  <option value="General Surgeon" <%=doctor.specialization=='General Surgeon'?'selected':''%>>General Surgeon</option>
+                  <option value="Pediatrician" <%=doctor.specialization=='Pediatrician'?'selected':''%>>Pediatrician</option>
+                  <option value="General Surgeon" <%=doctor.specialization=='General Surgeon'?'selected':''%>>General Surgeon</option>
+                  <option value="Dental Surgeon" <%=doctor.specialization==''?'selected':''%>">Dental Surgeon</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Enter Age</label>
+                <input type="number" class="form-control" name="age" placeholder="Enter age" value="<%=doctorInfo.age%>" required>
+              </div>
+              <div class="form-group">
+              <label>Mobile No</label>
+              <input type="tel" class="form-control" name="tel" placeholder="Enter mobile no" value="<%=doctorInfo.tel%>" required>
+              </div>
+              <div class="form-group col-md">
+              <label>Location</label>
+              <select class="form-select" name="location">
+                <option selected>Select City</option>
+                <option value="Banglore" <%=doctorInfo.location=="Banglore"?'selected':''%>>Banglore</option>
+                <option value="Delhi" <%=doctorInfo.location=="Delhi"?'selected':''%>>Delhi</option>
+                <option value="Kolkata" <%=doctorInfo.location=="Kolkata"?'selected':''%>>Kolkata</option>
+                <option value="Kanpur" <%=doctorInfo.location=="Kanpur"?'selected':''%>>Kanpur</option>
+                <option value="Mumbai" <%=doctorInfo.location=="Mumbai"?'selected':'Mumbai'%>>Mumbai</option>
+                <option value="Pune" <%=doctorInfo.location=="Pune"?'selected':''%>>Pune</option>
+                <option value="Noida" <%=doctorInfo.location=="Noida"?'selected':''%>>Noida</option>
+                <option value="Indore" <%=doctorInfo.location=="Indore"?'selected':''%>>Indore</option>
+                <option value="Hyderabad" <%=doctorInfo.location=="Hyderabad"?'selected':''%>>Hyderabad</option>
+                <option value="Ranchi" <%=doctorInfo.location=="Ranchi"?'selected':''%>>Ranchi</option>
+              </select>
+              </div>
+              <br>
+              <textarea class="msg" name="bio" placeholder="Add Bio" required></textarea>
+              <!-- end of single item -->
+              <!-- single item -->
+            </div>
+            <div class="">
+              <div class="form-group">
+                <label>Registration Number</label>
+                <input type="text" class="form-control" name="regno" placeholder="Enter registration number" value=""
+                  required>
+              </div>
+              <br>
+              <div class="form-group col-md">
+                <label>Registration Council</label>
+                <select class="form-select" name="">
+                  <option value="Karnataka State Dental Council">Karnataka State Dental Council</option>
+                  <option value="Maharashtra Medical Council">Maharashtra Medical Council</option>
+                  <option value="Delhi Medical Council">Delhi Medical Council</option>
+                  <option value="Andhra Pradesh Medical Council">Andhra Pradesh Medical Council</option>
+                  <option value="Maharashtra State Dental Council">Maharashtra State Dental Council</option>
+                  <option value="Tamil Nadu Medical Council">Tamil Nadu Medical Council</option>
+                  <option value="Karnataka Medical Council">Karnataka Medical Council</option>
+                  <option value="Maharashtra Council of  Indian Medicine">Maharashtra Council of Indian Medicine</option>
+                  <option value="Delhi State Dental Council">Delhi State Dental Council</option>
+                  <option value="Medical Council of India(MCI)">Medical Council of India(MCI)</option>
+                </select>
+              </div>
+              <br>
+              <div class="form-group">
+                <label>Registration Year</label>
+                <input type="text" class="form-control" name="regyr" placeholder="Enter registration year" value=""
+                  required>
+              </div>
+            </div>
+            <!-- end of single item -->
+            <!-- single item -->
+            <div class="">
+              <div class="form-group col-md">
+                <label>Degree</label>
+                <select class="form-select" name="degree">
+                  <option selected>Select Degree</option>
+                  <option value="MBBS– Bachelor of Medicine, Bachelor of Surgery" <%=doctorInfo.degree%>>MBBS– Bachelor of Medicine, Bachelor of Surgery</option>
+                  <option value="BDS – Bachelor of Dental Surgery" <%=doctorInfo.degree%>>BDS – Bachelor of Dental Surgery</option>
+                  <option value="BAMS– Bachelor of Ayurvedic Medicine and Surgery" <%=doctorInfo.degree%>>BAMS– Bachelor of Ayurvedic Medicine and Surgery</option>
+                  <option value="BUMS– Bachelor of Unani Medicine and Surgery" <%=doctorInfo.degree%>>BUMS– Bachelor of Unani Medicine and Surgery</option>
+                  <option value="BHMS– Bachelor of Homeopathy Medicine and Surgery" <%=doctorInfo.degree%>>BHMS– Bachelor of Homeopathy Medicine and Surgery</option>
+                  <option value="BYNS- Bachelor of Yoga and Naturopathy Sciences" <%=doctorInfo.degree%>>BYNS- Bachelor of Yoga and Naturopathy Sciences</option>
+                  <option value="B.V.Sc & AH- Bachelor of Veterinary Sciences and Animal Husbandry" <%=doctorInfo.degree%>>B.V.Sc & AH- Bachelor of Veterinary Sciences and Animal Husbandry</option> <%=doctorInfo.degree%>
+                </select>
+              </div>
+              <div class="form-group col-md">
+                <label>College/Institue</label>
+                <select class="form-select" name="clg">
+                  <option selected>Select College/Institue</option>
+                  <option value="ACSR Government Medical College Nellore" <%=doctorInfo.clg%>>ACSR Government Medical College Nellore</option>
+                  <option value="Diphu Medical College & Hospital, Diphu, Assam" <%=doctorInfo.clg%>>Diphu Medical College & Hospital, Diphu, Assam</option>
+                  <option value="Employees State Insurance Corporation Medical College,Patna" <%=doctorInfo.clg%>>Employees State Insurance Corporation Medical College,Patna</option>
+                  <option value="Dr. Baba Saheb Ambedkar Medical College, Rohini, Delhi" <%=doctorInfo.clg%>>Dr. Baba Saheb Ambedkar Medical College, Rohini, Delhi</option>
+                  <option value="Ahmedabad Municipal Coporation Medical Education Trust Medical College, Ahmedabad" <%=doctorInfo.clg%>>Ahmedabad Municipal Coporation Medical Education Trust Medical College, Ahmedabad</option>
+                  <option value="BPS Government Medical College for Women, Sonepat" <%=doctorInfo.clg%>>BPS Government Medical College for Women, Sonepat</option>
+                  <option value="Government Medical College, Rajouri, J&K" <%=doctorInfo.clg%>>Government Medical College, Rajouri, J&K</option>
+                </select>
+              </div>
+              <div class="form-group col-md">
+                <label>Year of Completion</label>
+                <select class="form-select col-md" name="yr">
+                  <option selected>Select year of completion</option>
+                  <option value="2021" <%=doctorInfo.yr=="2021"?'selected':''%>>2021</option>
+                  <option value="2020" <%=doctorInfo.yr=="2020"?'selected':''%>>2020</option>
+                  <option value="2019" <%=doctorInfo.yr=="2019"?'selected':''%>>2019</option>
+                  <option value="2018" <%=doctorInfo.yr=="2018"?'selected':''%>>2018</option>
+                  <option value="2017" <%=doctorInfo.yr=="2017"?'selected':''%>>2017</option>
+                  <option value="2016" <%=doctorInfo.yr=="2016"?'selected':''%>>2016</option>
+                  <option value="2015" <%=doctorInfo.yr=="2015"?'selected':''%>>2015</option>
+                  <option value="2014" <%=doctorInfo.yr=="2014"?'selected':''%>>2014</option>
+                  <option value="2013" <%=doctorInfo.yr=="2013"?'selected':''%>>2013</option>
+                  <option value="2012" <%=doctorInfo.yr=="2012"?'selected':''%>>2012</option>
+                  <option value="2011" <%=doctorInfo.yr=="2011"?'selected':''%>>2011</option>
+                  <option value="2010" <%=doctorInfo.yr=="2010"?'selected':''%>>2010</option>
+                  <option value="2009" <%=doctorInfo.yr=="2009"?'selected':''%>>2009</option>
+                  <option value="2008" <%=doctorInfo.yr=="2008"?'selected':''%>>2008</option>
+                  <option value="2007" <%=doctorInfo.yr=="2007"?'selected':''%>>2007</option>
+                  <option value="2006" <%=doctorInfo.yr=="2006"?'selected':''%>>2006</option>
+                  <option value="2005" <%=doctorInfo.yr=="2005"?'selected':''%>>2005</option>
+                  <option value="2004" <%=doctorInfo.yr=="2004"?'selected':''%>>2004</option>
+                </select>       
+              </div>
+              <div class="form-group">
+                <label>Years of experience</label>
+                <input type="text" class="form-control" name="yrOfexperience" placeholder="Type years of experience" value="" required>
+              </div>
+              <br>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            <!-- end of single item -->
+          </form>
+        </div>
+      </article>
+    </div>
+  </section>
+  <script src="/js/app.js"></script>
+  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+</body>
+
+</html>

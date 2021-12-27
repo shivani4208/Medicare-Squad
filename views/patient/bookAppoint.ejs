@@ -1,0 +1,14 @@
+<style>
+    .hello{
+        padding-top: 20rem;
+    }
+</style>
+
+<div class="container">
+    <%=field%>  
+    <%for(let i=0;i<member.length;i++){%>
+        <h2 class="hello">hello</h2>
+        <%=member[i].name%>
+        <%=member[i].location%>
+    <%}%>
+</div>

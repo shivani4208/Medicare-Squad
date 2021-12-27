@@ -1,0 +1,78 @@
+<%-include('include/header')%>
+    <style>
+        .box-container {
+            margin: 10rem 0 0 15rem;
+            max-width: 55vw;
+            min-height: 60vh;
+            background-color: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        form {
+            align-self: flex-start;
+        }
+    </style>
+    <main class="box-container">
+        <div class="container py-5">
+            <form action="/patientPage/record/addForm" method="POST" autocomplete="off" enctype="multipart/form-data">
+                <input type="hidden" name="" value="<%=member._id%>">
+                <div class="form-group">
+                    <label>Member's Name</label>
+                    <input type="text" class="form-control" name="name" placeholder="Enter member's name" value="<%=member.name%>" required>
+                    <div class="text-danger">
+                        <%=member.nameError%></div>
+                </div>
+                <div class="form-group">
+                    <label>Add Symptoms if Any</label>
+                    <input type="text" class="form-control" name="symptoms" placeholder="Filled NA if not" value="<%=member.symptoms%>" required>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Enter Age</label>
+                        <input type="number" class="form-control" name="age" placeholder="Enter age" value="<%=member.age%>" required>
+                        <div class="text-danger">
+                            <%=member.ageError%></div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Gender</label>
+                        <select class="form-select" name="gender" value="<%=member.gender%>">
+                            <option selected>Choose an option</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Relation</label>
+                        <select class="form-select" name="relation" value="<%=member.relation%>">
+                            <option selected>Choose an option</option>
+                            <option value="Self">Self</option>
+                            <option value="Mother">Mother</option>
+                            <option value="Wife">Wife</option>
+                            <option value="Sister">Sister</option>
+                            <option value="Son">Son</option>
+                            <option value="Grandmother">Grandmother</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+                </div>
+                <label for="recordType" class="col-form-label">Type of Record</label>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" name="recordType" value="<%=member.recordType%>">
+                    <label for="status" class="form-check-label">Report</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" name="recordType" value="prescription">
+                    <label for="status" class="form-check-label">Prescription</label>
+                </div>
+                <input type="file" class="admin__input" id="myFile" name="myFile" value="<%=member.fname%>" required/>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-info"><i class="fa fa-database"></i>Submit</button>
+                    <a class="btn btn-secondary" href="/patientPage/record"><i class="fa fa-list-alt"></i>View All</a>
+                </div>
+            </form>
+        </div>
+    </main>
+    </body>
+
+    </html>

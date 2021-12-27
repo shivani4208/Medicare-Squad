@@ -1,0 +1,26 @@
+<%-include('include/header')%>
+    <style>
+        .files {
+            margin-top: 5rem;
+        }
+    </style>
+    <div class="container">
+        <div class="files">
+            
+                 
+            <form action="" method="POST">
+                <input type="file" name="myFile" id="myFile">
+                <button type="submit">Submit</button>
+            </form>
+            <div class="files__entity">
+                <i class="files__icon fa fa-file-text" aria-hidden="true"></i>
+                <span class="files__date">Date created:- <%=files.createdAt%></span>
+                <a href="/file/<%=files.fname%>" class="files__link"><i class="fa fa-eye tests__icon"
+                        aria-hidden="true"></i></a>
+            </div>
+
+        </div>
+    </div>
+    </body>
+
+    </html>

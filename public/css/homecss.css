@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:wght@300&family=Capriola&family=Markazi+Text&family=Podkova:wght@600&family=Signika+Negative&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:wght@300&family=Capriola&family=Markazi+Text&family=Podkova:wght@600&family=Rambla&family=Signika+Negative&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+body{
+    background-color:hsl(205, 100%, 96%);
+    background-image: url('../img/doctor.svg');
+    background-size: 50% 65%;
+    background-repeat: no-repeat;
+    background-position:right 69%;
+}
+/* .header{
+    width: 100%;
+    height: 1000px;
+} */
+nav {
+    background: #fff;
+    box-shadow:2px 5px 15px rgba(0,0,0,0.1);
+    height: 70px;
+    font-family: 'Markazi Text', serif;
+}
+.navbar-brand{
+    font-size:2.8rem;
+    transform: translateY(-12%);
+}
+
+nav ul {
+    float: right;
+    margin-right: 2px;
+}
+nav ul li{
+   display: inline-block;
+   margin: 0 15px;
+}
+nav ul li a{
+   position: relative;
+   color: black;
+   font-size: 25px;
+   padding: 5px 0;
+   text-transform: uppercase;
+}
+nav ul li a::before{
+   position: absolute;
+   content: '';
+   left: 0;
+   bottom: 0;
+   height: 3px;
+   width: 100%;
+   background-color: black;
+   transform: scaleX(0);
+   transform-origin: right;
+   transition: transform .2s linear;
+}
+nav ul li a:hover::before{
+   transform: scaleX(1);
+   transform-origin: left;
+}
+label #btn,
+label #cancel{
+   color: black;
+   font-size: 30px;
+   float: right;
+   line-height: 80px;
+   margin-right: 40px;
+   cursor: pointer;
+   display: none;
+}
+#check{
+   display: none;
+}
+.onimage{
+   position: relative;
+   top: 8rem;
+   left: 50px;
+   font-family: 'Averia Sans Libre', cursive;
+   text-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+   line-height: 4;
+}
+.onimage a{
+   text-decoration: none;
+   padding: 10px;
+   border: 4px solid black;
+   border-radius: 35px;
+   font-size: 25px;
+   color: blueviolet;
+}
+.footer{
+    background-color: black;
+    padding:10px 0 10px 0;
+    color: white;
+    text-align: center;
+    margin-top: 14rem;
+    font-family: 'Markazi Text', serif;
+}
+p{
+    margin-right: 30px;
+    padding-right: 30px;
+    margin-left: 30px;
+    padding-left: 30px;
+}
+@media (max-width: 1118px){
+   nav img{
+       left: 8%;
+   }
+   .onimage{
+        position: relative;
+        bottom: 500px;
+        left: 50px;
+    }
+   .onimage a{
+        position: relative;
+        left:12.3rem;
+        top:0.85rem;
+   }
+   body{
+       background-image: none;
+   }
+}
+@media (max-width: 986px)
+{
+   nav ul li a{
+       font-size: 18px;
+   }
+   ul{
+       position: relative;
+       left:12rem;
+       bottom:4.5rem;
+   }
+   .onimage{
+   position: relative;
+   bottom: 400px;
+   left: 50px;
+   }
+}
+@media (max-width: 798px)
+{
+   label #btn{
+       display: block;
+   }
+   .navbar-brand{
+       display: none;
+   }
+   ul{
+       position: fixed;
+       width: 100%;
+       height: 100vh;
+       background:hsl(205, 86%, 81%);
+       top:80px;
+       left: -100%;
+       text-align: center;
+       transition: all .5s;
+    }
+    nav ul li{
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+    nav ul li a{
+       color:white;
+       font-size: 28px;
+   }
+   .onimage{
+   position: relative;
+   bottom: 300px;
+   left: 50px;
+   
+   }
+   #check:checked ~ ul{
+       left: 0;
+       z-index: 2;
+   }
+   #check:checked ~ label #btn {
+       display: none;
+   }
+   #check:checked ~ label #cancel{
+       display: block;
+   }
+   
+}

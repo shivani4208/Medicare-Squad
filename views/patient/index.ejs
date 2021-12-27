@@ -1,0 +1,96 @@
+<%-include('include/header')%>
+    <style>
+        body {
+            background: url('/img/thank-you-doctor-and-nurse-3433432-2885294.png');
+            background-repeat: no-repeat;
+            background-position: left 17%;
+        }
+
+        form {
+            position: relative;
+            padding-left: 55%;
+            padding-top: 10%;
+        }
+
+        .form-group {
+            margin: 2px 5px;
+        }
+
+        .form-group span {
+            position: relative;
+            top: 30px;
+            left: 8px;
+        }
+
+        .form-group input {
+            padding-left: 30px;
+            border: solid 2px black;
+        }
+
+        @media screen and (max-width:1000px) {
+            body {
+                background: none;
+            }
+            form {
+                position: relative;
+                padding-left: 10%;
+                padding-top: 40%;
+            }
+        }
+    </style>
+    <section class="p-5">
+        <div class="container">
+            <form class="d-flex">
+                <div class="form-group">
+                    <span class="bi bi-geo-alt"></span>
+                    <input id="location-search" type="text" class="form-control" autocomplete='off' name="" value=""
+                        placeholder="Search Location">
+                    <div id="location-list"></div>
+                </div>
+                <div class="form-group">
+                    <span class="bi bi-search"></span>
+                    <input id="medical-search" type="text" class="form-control" autocomplete='off' name="" value=""
+                        placeholder="Search Doctors">
+                    <div id="medical-list"></div>
+                </div>
+            </form>
+            <!-- <img class="img-fluid" src="./img/doctor.png" alt=""> -->
+        </div>
+    </section>
+    <main class="box">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-4">
+                    <a href="#" class="card card-box">
+                        <img src="https://cdni.iconscout.com/illustration/premium/thumb/online-health-consultation-3606668-3013483.png"
+                            class="card-img-top img1" alt="..." />
+                        <div class="card-body" style="height: 5.5rem;">
+                            <h5 class="card-title title1">Instant Video Consultation</h5>
+                            <p class="card-text text1">Connect within 60 secs</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="/patientPage/record" class="card card-box" style="width: 18rem;">
+                        <img src="https://cdni.iconscout.com/illustration/premium/thumb/patient-medical-records-3958579-3277748.png"
+                            class="card-img-top img2" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Medical History</h5>
+                            <p class="card-text">Check your health records</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="#" class="card card-box" style="width: 18rem;">
+                        <img src="https://cdni.iconscout.com/illustration/premium/thumb/medical-research-team-working-on-covid-19-vaccine-4254594-3527233.png"
+                            class="card-img-top img3">
+                        <div class="card-body">
+                            <h5 class="card-title">Lab Tests</h5>
+                            <p class="card-text">Sample pickup at your home</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <%-include('include/footer')%>

@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:wght@300&family=Capriola&family=Markazi+Text&family=Piazzolla:wght@100&family=Podkova:wght@600&family=Rambla&family=Signika+Negative&display=swap');
+* {
+    box-sizing: border-box;
+  }
+body{
+    background:hsl(215, 100%, 96%);
+    font-family: 'Markazi Text', serif;
+}
+.loginbox{
+    height:70vh;
+    width:40vw;
+    margin-left: 28.3%;
+    margin-top: 6.7%;
+    background:white;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+}
+.container{
+    padding-left:8.5rem;
+    padding-top: 2rem;
+}
+h1{
+   color: brown; 
+   font-size:50px;
+}
+form a{
+    letter-spacing:1px;
+    color: blue; 
+    font-size:25px;
+    position: relative;
+    right:5.5px;
+}
+label{
+    font-size:1.5rem;
+}
+.form-control{
+    max-width: 15rem;
+    font-size: 1.2rem;
+}
+.btn {
+    color: white;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 24.5px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    border-radius: 2.5px;
+    transform: translate(80%,-10%);
+}
+
+.btn:hover{
+    background-color: #759966; 
+    color: blanchedalmond;
+}
+
+@media screen and (max-width:1200px){
+    .loginbox{
+        width:55vw;
+        height:70vh;
+        position: relative;
+        right:2rem;
+        top:1rem;
+    }
+    .container{
+        font-size:0.7rem;
+        position: relative;
+        right:4.3rem;
+        bottom: 1rem;
+    }
+    h1{
+        font-size: 40px;
+    }
+    form a{
+        font-size: 21px;
+    }
+}
+    
