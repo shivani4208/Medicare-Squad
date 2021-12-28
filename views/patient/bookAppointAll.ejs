@@ -5,10 +5,10 @@
         color:#222;
     }
     .card{
-        max-width: 66vw;
-        margin-left: 5rem;
+        max-width: 60vw;
+        margin-left: 7rem;
         padding: 1rem 0.85rem;
-        min-height:30vh;
+        max-height:45vh;
         background: white;
         box-shadow: 3px 10px 15px rgba(0,0,0,0.1);
     }
@@ -20,11 +20,25 @@
     }
     #res{
         position: relative;
-        left:70rem;
+        left:65rem;
+        top:3rem;
+    }
+    @media screen and (max-width:960px){
+        .card{
+            margin:10px auto;
+        }
+        .bio{
+            display: none;
+        }
+        #res{
+            position: relative;
+            left:17rem;
+            top:0.05px;
+        }
     }
 </style>
 <section>
-    <div id="res"></div>
+    <div id="res">hello</div>
     <%for(let i=0;i<member.length;i++){%>
         <div class="card bg-light">
             <div class="container">
@@ -38,7 +52,7 @@
                         <h6><%=member[i].specialization%></h6>
                         <h6><%=member[i].yr%> Years Experience Overall</h6>
                         <h6 class="fw-bold"><%=member[i].city%></h6>
-                        <h6><%=member[i].bio%></h6>
+                        <h6 class="bio"><%=member[i].bio%></h6>
                     </div>
                 </div>
             </div>
@@ -57,3 +71,4 @@
         })
     }
 </script>
+<%-include('include/footer')%>
