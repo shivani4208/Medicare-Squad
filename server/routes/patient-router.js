@@ -36,7 +36,7 @@ router.get('/', (req, res) => {
 router.get('/bookAppointAll', (req, res) => {
     DoctorInfo.find({}, (err, doc) => {
         if (!err)
-            res.render('bookAppoint.ejs', {
+            res.render('bookAppointAll.ejs', {
                 member: doc
             })
         else
