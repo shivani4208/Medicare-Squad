@@ -69,6 +69,9 @@ router.get('/bookAppoint', (req, res) => {
             console.log('Error in retrieving doctor list :' + err);
     })
 })
+router.get('/labTest',(req,res)=>{
+    res.render('labTest.ejs');
+})
 router.get('/record', (req, res) => {
     Member.find((err, doc) => {
         if (!err) {
