@@ -16,11 +16,6 @@ Medicare is a patient-doctor web page that is designed to fulfill online booking
 - Clicking Search will allow the patient to view a list of doctors
   based on their selected criteria.  <br />
 ---
-## Challenges we ran into
--Faced problems with login signup authorization
--Finding nearby doctors in a specific field
--Uploading multiple files in the patient's medical record.
----
 ### Features being worked on:
 - Patient and Doctor both can share prescription or test reports to
   each other.
